@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom B2C Self-Asserted Page</title>
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 text-center">
+    <h1 class="text-2xl font-bold">My Custom B2C Page</h1>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-grow flex items-center justify-center p-4">
+    <form id="api" method="post" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6">
+      <!-- Anti-forgery token and hidden fields will be injected here by B2C -->
+
+      <!-- Custom placement: Label for signInName -->
+      <div>
+        <div data-b2c-element="label.signInName" class="block text-sm font-medium text-gray-700"></div>
+        <div data-b2c-element="input.signInName" class="mt-1"></div>
+      </div>
+
+      <!-- Custom placement: Label for message -->
+      <div>
+        <div data-b2c-element="label.message" class="block text-sm font-medium text-gray-700"></div>
+        <div data-b2c-element="input.message" class="mt-1"></div>
+      </div>
+
+      <!-- Submit button placement -->
+      <div class="pt-4">
+        <div data-b2c-element="button.submit" class="w-full">
+          <!-- B2C will inject a <button type='submit'> here -->
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center p-4 text-xs text-gray-500">
+    © 2025 My Company
+  </footer>
+</body>
+</html>

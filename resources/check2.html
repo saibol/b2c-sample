@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Custom B2C Page</title>
+    <meta name="viewport" content="width=device‑width,initial‑scale=1" />
+
+    <!-- Your CSS/Fonts/Scripts -->
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+  </head>
+
+  <body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Optional header/logo/navigation -->
+    <header class="p-4 text-center bg-white shadow">
+      <img src="/assets/logo.svg" alt="My App" class="mx-auto h-10" />
+    </header>
+
+    <!-- B2C will render your input fields here -->
+    <!-- Must be a <form> with id="api" and method="post" -->
+    <main class="flex‑1 flex items-center justify-center">
+      <form
+        id="api"
+        method="post"
+        class="bg-white p-8 rounded shadow‑lg w‑full max‑w-md space-y-6"
+      >
+        <!-- B2C will inject:
+           - Anti‑Forgery token
+           - A hidden txn/sessionId
+           - One <label>+<input> per Required OutputClaim
+           - A <button type="submit">
+      --></form>
+    </main>
+
+    <!-- Optional footer/legal links -->
+    <footer class="p-4 text-center text-xs text-gray-500">
+      © 2025 My Company
+    </footer>
+
+    <!-- B2C injects nothing here, but you can load your own scripts -->
+    <script src="/scripts/my‑page.js"></script>
+  </body>
+</html>
