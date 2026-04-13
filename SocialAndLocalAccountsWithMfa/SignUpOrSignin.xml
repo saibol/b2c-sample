@@ -24,7 +24,7 @@
       <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
       <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
       <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+      <OutputClaim ClaimTypeReferenceId="objectId" />
     </OutputClaims>
     <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="false" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" />
   </TechnicalProfile>

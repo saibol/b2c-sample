@@ -603,6 +603,7 @@
           <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="ProviderName">https://sts.windows.net/</Item>
+            <Item Key="client_id">{service:te}</Item>
             <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
             <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
             <Item Key="response_types">id_token</Item>
@@ -1190,7 +1191,7 @@
           <OutputTokenFormat>SAML2</OutputTokenFormat>
           <Metadata>
             <!-- The application entity ID / Issuer URI from the SP authentication request -->
-            <Item Key="IssuerUri">samlAPPUITest</Item>
+            <Item Key="IssuerUri">https://azureadb2ctests.onmicrosoft.com/samlAPPUITest</Item>
             <Item Key="UseEntityID">false</Item>
             <Item Key="AssertionConsumerServiceUrl">https://samltestapp2.azurewebsites.net/SP/AssertionConsumer</Item>
           </Metadata>
@@ -1200,8 +1201,20 @@
             <!-- The key used to sign the SAML assertion -->
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert" />
           </CryptographicKeys>
-          <InputClaims />
-          <OutputClaims />
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="objectId" />
+            <InputClaim ClaimTypeReferenceId="displayName" />
+            <InputClaim ClaimTypeReferenceId="givenName" />
+            <InputClaim ClaimTypeReferenceId="surname" />
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="displayName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" />
+            <OutputClaim ClaimTypeReferenceId="surname" />
+            <OutputClaim ClaimTypeReferenceId="email" />
+          </OutputClaims>
         </TechnicalProfile>
 
       </TechnicalProfiles>

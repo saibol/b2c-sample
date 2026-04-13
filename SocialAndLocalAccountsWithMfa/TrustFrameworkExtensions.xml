@@ -32,26 +32,11 @@
     </ClaimsProvider>
 
 
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="login-NonInteractive">
-          <Metadata>
-            <Item Key="client_id">088431cb-5733-4616-bd2b-f183c61e5152</Item>
-            <Item Key="IdTokenAudience">899a955d-8489-40d6-86f1-419dcc5c8968</Item>
-          </Metadata>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="088431cb-5733-4616-bd2b-f183c61e5152" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="899a955d-8489-40d6-86f1-419dcc5c8968" />
-          </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-
   </ClaimsProviders>
 
     <!--UserJourneys>
-	
-	</UserJourneys-->
+ 	
+ 	</UserJourneys-->
 
 </TrustFrameworkPolicy>
+
