@@ -1191,7 +1191,7 @@
           <OutputTokenFormat>SAML2</OutputTokenFormat>
           <Metadata>
             <!-- The application entity ID / Issuer URI from the SP authentication request -->
-            <Item Key="IssuerUri">https://azureadb2ctests.onmicrosoft.com/samlAPPUITest</Item>
+            <Item Key="IssuerUri">samlAPPUITest</Item>
             <Item Key="UseEntityID">false</Item>
             <Item Key="AssertionConsumerServiceUrl">https://samltestapp2.azurewebsites.net/SP/AssertionConsumer</Item>
           </Metadata>
