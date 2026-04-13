@@ -14,24 +14,19 @@
   </BasePolicy>
 
   <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <Endpoints>
-      <!--points to refresh token journey when app makes refresh token request-->
-      <Endpoint Id="Token" UserJourneyReferenceId="RedeemRefreshToken" />
-    </Endpoints>
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
-        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2" />
+    <OutputClaims>
+      <!-- These claims will be included in the SAML Response -->
+      <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+      <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+      <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
+      <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="false" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" />
+  </TechnicalProfile>
+</RelyingParty>
 </TrustFrameworkPolicy>

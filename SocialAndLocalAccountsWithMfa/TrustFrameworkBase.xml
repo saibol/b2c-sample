@@ -1165,29 +1165,31 @@
       </TechnicalProfiles>
     </ClaimsProvider>
 
-    <ClaimsProvider>
-      <DisplayName>Token Issuer</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="JwtIssuer">
-          <DisplayName>JWT Issuer</DisplayName>
-          <Protocol Name="OpenIdConnect" />
-          <OutputTokenFormat>JWT</OutputTokenFormat>
-          <Metadata>
-            <Item Key="client_id">{service:te}</Item>
-            <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
-            <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-            <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer" />
-          </CryptographicKeys>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+  </ClaimsProvider>
+    <DisplayName>Token Issuer</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="Saml2AssertionIssuer">
+        <DisplayName>Token Issuer</DisplayName>
+        <Protocol Name="SAML2" />
+        <OutputTokenFormat>SAML2</OutputTokenFormat>
+        <Metadata>
+          <!-- The URI your application expects as the 'Issuer' in the SAML response -->
+          <Item Key="IssuerUri">saibol-1111-2222</Item>
+        </Metadata>
+        <CryptographicKeys>
+          <!-- The key used to sign the SAML response -->
+          <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert" />
+          <!-- The key used to sign the SAML assertion -->
+          <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert" />
+        </CryptographicKeys>
+        <InputClaims />
+        <OutputClaims />
+        <UseEntityID>false</UseEntityID>
+      </TechnicalProfile>
+    </TechnicalProfiles>
+  </ClaimsProvider>
 
-
-     <!--claims provider for refresh token revocation-->
+  <!--claims provider for refresh token revocation-->
   <ClaimsProvider>
     <DisplayName>Refresh token journey</DisplayName>
     <TechnicalProfiles>
