@@ -1164,13 +1164,12 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
-
-  </ClaimsProvider>
-    <DisplayName>Token Issuer</DisplayName>
-    <TechnicalProfiles>
-      <TechnicalProfile Id="Saml2AssertionIssuer">
-        <DisplayName>Token Issuer</DisplayName>
-        <Protocol Name="SAML2" />
+    <ClaimsProvider>
+      <DisplayName>Token Issuer</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Saml2AssertionIssuer">
+          <DisplayName>Token Issuer</DisplayName>
+          <Protocol Name="SAML2" />
         <OutputTokenFormat>SAML2</OutputTokenFormat>
         <Metadata>
           <!-- The URI your application expects as the 'Issuer' in the SAML response -->
